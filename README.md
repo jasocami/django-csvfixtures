@@ -80,23 +80,4 @@ This example can be used directly in the admin panel or via the **Upload fixture
 
 ---
 
-## 🚀 Publishing to GitHub and PyPI
-
-1. Create a GitHub repository: `https://github.com/jasocami/django-csvfixtures`.
-2. Add all files listed above.
-3. Build and publish to PyPI:
-
-```bash
-python -m build
-python -m twine upload dist/*
-```
-
-4. Install it via pip:
-
-```bash
-pip install django-csvfixtures
-```
-
----
-
 This keeps the library fully **plug-and-play**, **admin-integrated**, and **ready for production use** without requiring the user to manually include any URLs or modify their Django configuration.
