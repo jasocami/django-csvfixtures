@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1>Import CSV as a fixture</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <table>{{ form.as_table }}</table>
+  <button type="submit" class="default">Upload CSV</button>
+</form>
+{% if summary %}
+<h2>Resumme</h2>
+<p>Proccesed files: {{ summary.total_rows }}</p>
+<p>Created objects: {{ summary.created }}</p>
+<p>Errors: {{ summary.errors|length }}</p>
+{% if summary.errors %}
+  <ul>
+    {% for rownum, msg in summary.errors %}
+      <li>Row {{ rownum }} — {{ msg }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endif %}
+{% endblock %}

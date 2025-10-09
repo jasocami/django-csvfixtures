@@ -1,0 +1,21 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools-items %}
+  {{ block.super }}
+  <li>
+    <form method="post" enctype="multipart/form-data" style="display:inline;margin-left:10px;">
+      {% csrf_token %}
+      {{ csvfixture_per_model_form.csv_file }}
+      <button type="submit" class="button">Upload fixture (CSV)</button>
+    </form>
+  </li>
+{% endblock %}
+{% block content %}
+  {{ block.super }}
+  {% if import_summary %}
+    <div class="messagelist">
+      <div class="success">
+        Uploaded successfuly: {{ import_summary.created }} created objects from {{ import_summary.total_rows }} rows.
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

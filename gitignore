@@ -1,0 +1,78 @@
+# .gitignore for django-csvfixtures
+
+# Python
+
+**pycache**/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+dist/
+build/
+.eggs/
+*.manifest
+*.spec
+
+# Virtual environments
+
+venv/
+env/
+.env
+
+# Django
+
+*.log
+*.pot
+*.py[cod]
+**pycache**/
+db.sqlite3
+media/
+staticfiles/
+
+# Editor / OS files
+
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# PyInstaller
+
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# MyPy
+
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Local pip cache
+
+pip-log.txt
+pip-delete-this-directory.txt
