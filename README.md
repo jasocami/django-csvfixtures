@@ -41,8 +41,8 @@ Add it to your `settings.py`:
 ```python
 INSTALLED_APPS = [
     ...
-    'csvfixture_importer',
     'django.contrib.admin',
+    'csvfixture_importer',
 ]
 ```
 
