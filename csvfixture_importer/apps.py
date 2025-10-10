@@ -4,3 +4,6 @@ class CSVFixtureImporterConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'csvfixture_importer'
     verbose_name = 'CSV Fixture Importer'
+
+    def ready(self):
+        from . import urls
