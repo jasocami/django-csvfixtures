@@ -1,0 +1,18 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+    <div class="app-csvfixture_importer module" style="margin-top: 2em;">
+        <table>
+            <caption>CSV Fixture Importer</caption>
+            <tr>
+                <th scope="row">
+                    <a href="{% url 'admin:csv-fixtures' %}">Upload CSV Fixtures</a>
+                </th>
+                <td>
+                    Import CSV files as data fixtures for your models.
+                </td>
+            </tr>
+        </table>
+    </div>
+    {{ block.super }}
+{% endblock %}
