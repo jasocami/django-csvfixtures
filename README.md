@@ -81,3 +81,11 @@ This example can be used directly in the admin panel or via the **Upload fixture
 ---
 
 This keeps the library fully **plug-and-play**, **admin-integrated**, and **ready for production use** without requiring the user to manually include any URLs or modify their Django configuration.
+
+## Debug
+
+This will install the lib and update changes made to it
+
+```bash
+pip install -e .
+```
