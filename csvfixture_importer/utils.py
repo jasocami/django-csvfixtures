@@ -1,8 +1,7 @@
 import csv
 from io import TextIOWrapper
+
 from django.db import transaction
-from django.apps import apps
-from django.core.exceptions import ValidationError
 from django.db.models.fields.related import ForeignKey
 
 

@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib import admin
-from .admin import admin_panel_view
+from .views import admin_panel_view
 
 
 def register_admin_urls():
