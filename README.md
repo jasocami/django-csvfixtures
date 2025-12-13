@@ -1,19 +1,8 @@
-MIT License
-
-Copyright (c) 2025 Your Name
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-
 # django_csvfixtures
 
 Django 5 library to import CSV files as fixtures from the `/admin` panel or directly from each model list page.
-Designed to be **plug-and-play**, **installable via pip**, and ready for publication on **GitHub / PyPI**.
+Designed to be **plug-and-play**, **admin-integrated**, and **ready for production use** without requiring the user to
+manually include any URLs or modify their Django configuration, **installable via pip**, and ready for publication on **GitHub / PyPI**.
 
 
 ## ✅ Summary
@@ -77,10 +66,6 @@ id,name,number,zone_id
 * Fields in the CSV must exactly match the model field names.
 
 This example can be used directly in the admin panel or via the **Upload fixture** button in each model’s changelist.
-
----
-
-This keeps the library fully **plug-and-play**, **admin-integrated**, and **ready for production use** without requiring the user to manually include any URLs or modify their Django configuration.
 
 ## Debug
 

@@ -11,7 +11,6 @@
         <h1>Import CSV as a fixture</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="hidden" name="pending_confirm" value="pending">
             <fieldset class="module aligned">
                 {% for field in form %}
                     <div class="form-row field-{{ field.name }} {{ field.css_classes }}">

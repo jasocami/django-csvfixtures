@@ -18,8 +18,6 @@ def admin_panel_view(request):
     if request.method == 'POST':
         form = CSVUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            if form.data.get('pending_confirm', None) == 'pending':
-                ...
             model_label = form.cleaned_data['model']
             csv_file = form.cleaned_data['csv_file']
             model = _get_model_from_label(model_label)
@@ -42,6 +40,5 @@ def admin_panel_view(request):
         'admin/csvfixture_importer/panel.html',
         {
             'form': form,
-            'pending_confirm': True,
         }
     )

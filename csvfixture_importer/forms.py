@@ -9,7 +9,7 @@ class CSVUploadForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         models = []
-        for model in apps.get_models():
+        for model in [m for m in apps.get_models() if not m._meta.abstract]:
             label = f"{model._meta.app_label}.{model._meta.object_name}"
             models.append((label, label))
         models.sort(key=lambda x: x[1])
