@@ -4,6 +4,17 @@ from django.db.models.fields.related import ForeignKey
 from .utils import iter_csv_rows, field_value_from_string
 
 
+def get_csv_preview(file_obj, encoding='utf-8'):
+    total = 0
+    preview = []
+    for rownum, row in enumerate(iter_csv_rows(file_obj, encoding=encoding), start=0):
+        if total > 10:
+            break
+        preview.append(row)
+        total += 1
+    return preview
+
+
 @transaction.atomic
 def import_csv_to_model(model, file_obj, encoding='utf-8'):
     created, errors, total = 0, [], 0

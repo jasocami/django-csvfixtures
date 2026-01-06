@@ -5,6 +5,7 @@ from django.apps import apps
 class CSVUploadForm(forms.Form):
     model = forms.ChoiceField(label='Model', choices=(), required=True)
     csv_file = forms.FileField(label='CSV file', required=True)
+    step = forms.CharField(label='Step', required=False)
 
     def __init__(self, *args, **kwargs):
         model_name = kwargs.pop('specific_model', None)
@@ -18,3 +19,7 @@ class CSVUploadForm(forms.Form):
                 models.append((label, label))
             models.sort(key=lambda x: x[1])
         self.fields['model'].choices = models
+
+    def get_step_name(self):
+        print('Form data:', self.data)
+        return self.data.get('step', None)

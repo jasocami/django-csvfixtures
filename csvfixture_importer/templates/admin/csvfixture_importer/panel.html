@@ -1,33 +1,55 @@
 {% extends "admin/base_site.html" %}
 {% load i18n static %}
 
-{% block extrastyle %}
+{% block extrahead %}
     {{ block.super }}
+    {{ form.media }}
     <link rel="stylesheet" href="{% static "admin/css/forms.css" %}">
+    <script src="{% static 'admin/js/cancel.js' %}" async></script>
 {% endblock %}
 
 {% block content %}
     <div id="content-main">
         <h1>Import CSV as a fixture</h1>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="module aligned">
-                {% for field in form %}
-                    <div class="form-row field-{{ field.name }} {{ field.css_classes }}">
-                        <div>
-                            <div class="flex-container">
-                                {{ field.label_tag  }}
-                                {{ field.as_widget }}
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </fieldset>
-            <div class="submit-row">
-                <input type="submit" value="{% translate 'Upload CSV' %}">
-            </div>
-        </form>
-        {% if summary %}
+        {% if not summary %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="module">
+                    <fieldset class="module aligned">
+                        {{ form }}
+                    </fieldset>
+                    <input type="hidden" name="step" value="{{ step }}">
+                </div>
+                {% if preview %}
+                    <hr>
+                    <h2>Import preview</h2>
+                    <br>
+                    <table>
+                        <thead>
+                        {% for k, v in preview.0.items %}
+                            <th>{{ k }}</th>
+                        {% endfor %}
+                        </thead>
+                        <tbody>
+                        {% for item in preview %}
+                            <tr>
+                                {% for k, v in item.items %}
+                                    <td>{{ v }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <br>
+                    <hr>
+                    <br>
+                {% endif %}
+                <div class="submit-row">
+                    <input type="submit"
+                           value="{% if step == 'preview' %}{% trans 'Confirm' %}{% else %}{% trans 'Upload CSV' %}{% endif %}">
+                </div>
+            </form>
+        {% elif summary %}
             <h2>Resume</h2>
             <p>Processed files: {{ summary.total_rows }}</p>
             <p>Created objects: {{ summary.created }}</p>
